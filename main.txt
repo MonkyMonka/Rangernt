@@ -1,2 +1,2 @@
-/loadmod characters/ranger.race.gml
+/loadmod characters/ranger.race.gm
 
