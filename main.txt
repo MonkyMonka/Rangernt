@@ -1,0 +1,3 @@
+/loadmod characters/mole.race.gml
+/loadmod areas/burrows.area.gml
+/loadmod weapons/carrionhand.wep.gml
