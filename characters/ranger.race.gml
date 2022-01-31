@@ -125,38 +125,7 @@
 			
 		}
 	}
-	if(rollTime > 0){
-		rollTime--;
 
-		 // Speedify:
-		speed = maxspeed + 2;
-
-		/// Throne Butt \\\
-		if(skill_get(5)){
-			sprite_angle = direction - 90;	// Point Towards Direction
-			instance_create(x,y,FishBoost);	// Water Particles
-		}
-
-		/// Roll (No Butt) \\\
-		else{
-			canwalk = 0;				// Can't Use Movement Keys
-			sprite_angle += 40 * right;	// Rotate
-			instance_create(x + random_range(-3, 3), y + random(6), Dust); // Dust Particles:
-		}
-
-		 // Bounce Off Walls:
-		if(place_meeting(x + hspeed, y + vspeed, Wall)){
-			move_bounce_solid(true);
-			rollTime *= skill_get(5);
-		}
-
-		 // On Roll End:
-		if(rollTime <= 0){
-			sprite_angle = 0;		// Reset Rotation
-			canwalk = 1;			// Can Use Movement Keys Again
-			sound_stop(sndFishTB);	// Stop Water Boost Sound
-		}
-	}
 
 	///  ULTRA A : Confiscate  \\\
 	if(ultra_get("fishexample", 1)){
@@ -189,7 +158,7 @@
 
  // Description:
 #define race_text
-	return "GETS MORE @yAMMO#@wCAN ROLL";
+	return "CRACK SHOT#@wLAWBRINGER'S MIGHT";
 
 
  // Starting Weapon:
@@ -199,7 +168,7 @@
 
  // Throne Butt Description:
 #define race_tb_text
-	return "WATER BOOST";
+	return "KILLS WITH LAWBRINGER'S MIGHT INCREASE YOUR RELOAD SPEED TEMPORARILY";
 
 
  // On Taking Throne Butt:
@@ -235,8 +204,10 @@
  // Ultra Names:
 #define race_ultra_name
 	switch(argument0){
-		case 1: return "CONFISCATE";
-		case 2: return "GUN WARRANT";
+		case 1: return "EQUALIZER";
+		case 2: return "IRON WILL";
+		case 3: return "FAN THE HAMMER";
+		case 4: return "COLLATERAL DAMAGE";
 		/// Add more cases if you have more ultras!
 	}
 
@@ -244,8 +215,10 @@
  // Ultra Descriptions:
 #define race_ultra_text
 	switch(argument0){
-		case 1: return "@wENEMIES @sSOMETIMES DROP @wCHESTS";
-		case 2: return "@yINFINITE AMMO @sTHE FIRST 7 SECONDS#AFTER EXITING A @pPORTAL";
+		case 1: return "GAIN A SECOND REVOLVER, GET DOUBLE THE AMMO YOU GET FROM STOCKPILES.#@wRESERVE AMMO IS INCREASED TO 24.";
+		case 2: return ". AT 1/2 OR LESS HP, #@wINCREASE THE DAMAGE DEALT BY LAWBRINGER'S MIGHT.";
+		case 3: return "ENEMIES HAVE A CHANCE TO DROP AMMO PACKS FOR LAWBRINGER'S MIGHT.";
+		case 4: return "SHOTS FROM LAWBRINGER'S MIGHT BOUNCE UP TO 3 TIMES.";
 		/// Add more cases if you have more ultras!
 	}
 
@@ -256,6 +229,8 @@
 		 // Play Ultra Sounds:
 		case 1:	sound_play(sndFishUltraA); break;
 		case 2: sound_play(sndFishUltraB); break;
+		case 3: sound_play(sndFishUltraB); break;
+		case 4: sound_play(sndFishUltraB); break;
 		/// Add more cases if you have more ultras!
 	}
 
