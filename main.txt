@@ -1,2 +1,5 @@
-/loadmod characters/ranger.race.gm
+/loadmod characters/ranger.race.gml
+/loadmod weapons/smalliron.wep.gml
+
+
 
